@@ -1,0 +1,13 @@
+I forelesningen ble det nevnt at datastrukturen kan påvirke kjøretiden på en
+algoritme. Gi et worst-case estimat av algoritmen nedenfor, som implementerer
+binærsøk over lenkede lister. Oppgi estimatet ved bruk av O-notasjon. Hvordan
+påvirker valget av datastruktur kjøretidskompleksiteten i dette tilfellet?
+
+Vi vet at ved binærsøk så vil kjøretidskompleksiteten angis til å være 
+log(n) fordi vi halverer antall søk for hver gang vi går i gjennom lenkelisten.
+Men det utføres også en hjelpefunksjon kalt A.get(i) hvor vi må itere igjennom 
+lenkelisten for å hente node "i". Dette må vi inkludere ved kjøretidskompleksiteten
+så svaret blir da: N log(N)
+
+
+

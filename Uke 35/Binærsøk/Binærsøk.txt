@@ -1,0 +1,42 @@
+Hva er Binærsøk?
+Et binærsøk kan sees som en effektiv algoritme som er nødvendig å anvende i sorterte lister, hvor hensikten er å finne fram til 
+et bestemt element i den sorterte listen. Dette gjøres ved å dele inn listen i to deler hvor den ene delen representerer den laveste delen
+og den andre representerer den største delen. Eksempel på en slikt liste:  
+
+Liste: [1,2,3,4,5,6,7,8]
+laveste = [1,2,3,4]
+høyeste = [5,6,7,8]
+
+Hensikten med å dele listen er for å gjøre letingen raskere og mer effektivt fremfor å søke igjennom hele listen. Det sparer tid og ressurser 
+så derfor kan Binærsøk være nyttige.
+
+Algoritme for Binærsøk
+A = liste
+x = indeks
+|A| = antall elementer på listen, samme som kardinaliteten til en mengde
+
+Binærsøk(A,x):
+    low <- 0    (Laveste indeks)
+    high <- |A| - 1     (Høyeste indeks)
+    while low <= high:   (Går så lenge den laveste indeksen er mindre eller lik den høyeste indeksen)
+        i <- (low + high)/2     (Variabelen "i" oppbevarer indeksen som vi skal benytte for å finne vår "x". Huske å runde tallet for å få et heltall)
+        if (A[i] == x):     
+            return True     (Returnerer True hvis vi har funnet elementet vi er ute etter)
+        else if (A[i] < x):
+            low <- i + 1    (Øker laveste med 1, fordi det er ikke vits å hente de elementene i en indeks lavere enn "low" siden vi jobber med sortert liste,                             
+                            dermed spiller det ingen rolle å sjekke elementene før dette siden de er lavere enn A[low])
+        else if (A[i] > x):
+            high <- i - 1   (Øker høyeste med 1, fordi det er ikke vits å hente de elementene i en indeks høyere enn "high" siden vi jobber med sortert liste, 
+                            dermed spiller det ingen rolle å sjekke elementene etter dette siden de er høyere enn A[høyere])
+    return False
+
+Gjennom algoritmen over så ser vi at vi har to indekser som representer deler i listen vår, den ene representerer den laveste/starten mens den andre representerer 
+høyeste/slutten. Tankegangen er rett og slett, A[i] != x så må vi sjekke hvorvidt A[i] er større eller mindre enn "x", fordi det gjør at listeintervallet mellom 
+low og high blir kortere og kortere. Dermed blir det enklere og mer effektivt å sjekke hvorvidt A[i] == x. Et visuelt eksempel kan sees på linken under:
+https://www.uio.no/studier/emner/matnat/ifi/IN2010/h21/ukeplan/uke-35.html som er da videoen binærsøk i tid 14:00
+                                                                             
+                                                                            
+
+                                                                        
+                                                                            
+                                                                    

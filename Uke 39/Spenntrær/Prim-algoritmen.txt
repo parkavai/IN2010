@@ -1,0 +1,34 @@
+Går gjennom vektene til en kant, spenntreet vil da fås frem ved at vi lager en sti 
+fra en startnode til sluttnoden ved å følge de billigste kantene(de med lavest vekt).
+Ved å gå fra en node til en annen node gjennom kanten, så velger man de 
+kantene med lavest vekt. 
+
+Input: Tar inn en graf
+Output: Sender ut et spenntre
+Procedure Prim(G)
+    pick v element in V, set D[v] = 0
+    // Startnoden v, hvor vi setter vekten/avstanden til å være 0
+    Initialiserer "T" som en tom tre, "Q" som en tom heap
+    // Heapen er ment for å holde styr på noder vi ikke har gått igjennom
+    for each vertex u in G do
+        D[u] = "Infinite/uendelig"
+        // Setter avstanden til å være uendelig og erstatter verdien etterhvert
+        Q.add(((u,None),D[u]))
+        // Legger til alle noder i heapen
+    while Q not empty do
+        (u,e) = Q.removeMin()
+        // Fjerner noden med minst avstand fra treet
+        add u and e to T
+        // Legger til noden og kanten som forbinder noden "u", inn i spenntreet "T"
+        // Sjekker naboer av u-noden i Q
+        for edge a = (u,z) with z in Q do 
+        // Iterer gjennom alle noder og kanter som ikke er lagt til i spenntreet
+            if w(a) < D[z] then
+                // Sjekker om det fins en kant med mindre avstand enn den vi er i
+                D[z] = w(a) // Endrer avstandsverdien til å tilsvare den nye kanten
+                Change entry of z in Q to ((z,a),D[z]) // Går fra den nye kant-avstanden
+    return T
+
+Kompleksiteten tilsvarer O(E*log(v)), siden vi iterer gjennom alle noder i G, men dette foretas i log(v). 
+Deretter iterer vi igjennom heapen og utfører operasjoner etter alle kanter. Derfor blir O(E*log(v)).
+

@@ -1,0 +1,28 @@
+Hva er AVL-trær?
+Trær med samme egenskap som binære søketrær. Forskjellen er at de også må 
+oppfylle kravet som er følgende: For hver node i AVL-tre, så må høydeforskjellen
+på venstre og høyre subtre være <= 1 (mindre eller lik 1). Ved sletting og innsetting
+så må vi derfor opprettholde dette kravet for at vi fremdeles skal ha et AVL-tre
+
+Egenskaper ved AVL-trær
+    Hvis "v" er en node så er:
+        - "v.element" dataen som er lagret i noden
+        - "v.left" er venstre barnet til "v" (som med binære søketrær)
+        - "v.right" er høyre barnet til "v" (som med binære søkretrær)
+        - "v.height" er høyden til "v", altså den dypeste løvnoden fra "v" sitt gren
+
+    Husk at høyden til et tomt tre er definert som -1
+        - og at høyden til en node er mer enn sitt høyeste subtre,
+        altså vi kan ikke ha at venstre subtre har høyde 6 imens
+        høyre subtre har høyde 4. Da opprettholdes ikke kravet 
+        ovenfor. Men hvis venstre subtre har høyde 5 og 
+        høyre subtre har høyde 4 så går det fint. 
+
+    Ved innsetting eller sletting så må vi vedlikeholden for at kravet ovenfor skal
+    oppfylles
+
+    Vi antar at vi har en prosedyre Height som:
+        - returnerer -1 dersom den får null som input
+        - returnerer v.height for alle noder "v"
+
+    For å kunne opprettholde kravene ovenfor så kan vi benytte av rotasjon

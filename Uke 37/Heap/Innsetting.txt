@@ -1,0 +1,10 @@
+Algoritme for innsetting i Heap
+Input: Et array A som representerer en heap med n elementer og et element x
+Output: Et array som representerer en heap, som inneholder x
+Procedure Insert(A,x)
+    A[n] <- x
+    i <- n
+    while 0 < i and A[i] < A[(i-1/2)] do
+        A[i], A[(i-1)/2] <- A[(i-1)/2],A[i]
+        i <- [(i-1)/2]
+    end

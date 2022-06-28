@@ -1,0 +1,18 @@
+Algoritmen for innsetting i binære søketrære:
+Input: En node "v" og et element "x"
+Output: En oppdatert node "v" der en node som inneholder "x", er etterkommer av node "v"
+Procedure Insert(v,x):
+    if (v == null) then
+        v <- new Node(x)
+    else if (x < v.element) then
+        v.left <- Insert(v.left, x)
+    else if (x > v.element) then
+        v.right <- Insert(v.right,x)
+    return v
+
+Denne algorimtmen har kompleksitet O(h), hvor:
+    - "h" er høyden på treet, siden vi må iterere gjennom pekerne fra rotnoden og nedover hvor worst case er da 
+    helt mot dybden av treet. 
+
+Dersom "n" er antall noder i treet har vi O(n) i verste tilfellet:
+    - men hvis treet er balansert så er kompleksiteten O(log(n))

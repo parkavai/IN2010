@@ -1,0 +1,20 @@
+Hva er binære trær?
+Et binært søketre er et binært tre som oppfyller følgende egenskap:
+    - For hver node "v" så er v.element
+        - større enn alle elementene i venste subtre og 
+        - mindre enn alle elementene i høyre subtre
+        - Altså minste elementer til venstre for "v" og 
+        - de store elementene til høyre for "v"
+    - For at vi skal bruke binære søketre så nodenes elementer være sammenlignbare
+
+Sammenhengen mellom binærsøk og binære søketrær
+    - Ideen bak binærsøk er å halvere søkerommet hver vi gjør en sammenligning, som gir O(log(n)) tid på oppslag
+    - Det fungerer strålende, men kreves at vi har en sortert array
+    - Et problem oppstår når vi trenger en dynamisk struktur
+        - Altså en struktur hvor vi skal fjerne eller legge til elementer
+    - Et binært søketre er en datastruktur som gjør binærsøket enkelt
+
+
+
+
+

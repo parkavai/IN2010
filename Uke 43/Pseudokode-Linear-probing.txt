@@ -1,0 +1,51 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme ved innsetting
+Input: Element som har en gitt nøkkel og verdi
+Output: Lagt til elementet i ledige plass
+-------------------
+def sett_inn_LinProb(i,key,value):
+    if A[i] == null then 
+        A[i] = Element(key,value)
+        
+    else if A[i].key == key then 
+        A[i].value = value
+
+    else 
+        i = (i+1) mod N 
+        sett_inn_LinProb(i,key,value)
+    
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme ved oppslag
+Input: Element som har en gitt nøkkel og verdi
+Output: Henter ut elementet 
+-------------------
+def oppslag_LinProb(i,key,value):
+    if A[i] == null then 
+        return null
+
+    else if A[i].key == key then 
+        return A[i]
+
+    else 
+        i = (i+1) mod N 
+        oppslag_LinProb(i,key,value)
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme ved sletting
+Input: Element som har en gitt nøkkel og verdi
+Output: Fjerner elementet
+-------------------
+def sletting_LinProb(i,key,value):
+    if A[i] == null then 
+        return null
+
+    if A[i].key != k then 
+        i = (i + 1) mod n
+        sletting_LinProb(i,key,value)
+
+    else if A[i].key == k then 
+        returverdi = A[i]
+        // Marker plassen som slettet, bruker et tomt element
+        A[i] = Element(null, null)
+        return returverdi

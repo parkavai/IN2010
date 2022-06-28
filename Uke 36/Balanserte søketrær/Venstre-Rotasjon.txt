@@ -1,0 +1,18 @@
+Algoritme for Venstre-Rotasjon av et Binærtre
+Input: En node "v"
+Output: Roter treet til venstre slik at "y" blir den nye roten
+Procedure LeftRotate(z):
+    y <- z.right
+    T1 <- y.left
+    y.left <- z
+    z.right <- T1
+    z.height <- 1 + max(Height(z.left), Height(z.right))
+    y.height <- 1 + max(Height(y.left), Height(y.right))
+    return y
+
+            Før venstrerotasjon:                                                Etter venstrerotasjon:                        
+                    z                                                                       y
+                T0      y                                                           z               x
+                    T1      x                                                  T0     T1       T2      T3
+                        T2      T3
+                                        

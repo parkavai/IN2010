@@ -1,0 +1,4 @@
+Kjøretidskompleksiteten til alle operasjoner
+
+Hva blir Kjøretidskompleksiteten?
+O(log(n)) siden treet er balansert og vi slipper da å måtte iterere igjennom alle noder. 

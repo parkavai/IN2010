@@ -1,0 +1,10 @@
+Algoritme for å finne stien til katten
+Input: En node "v" som representerer "Katte-noden" som vi skal finne stien til
+Output: Oversikt over stien som "Katte-noden" skal følge for å trygt, komme ned fra treet
+Procedure finnSti(v){
+    if v = None then
+        return
+    print(v.element)
+    finnSti(v.forelder)
+} 
+

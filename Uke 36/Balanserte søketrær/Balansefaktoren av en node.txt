@@ -1,0 +1,15 @@
+Algoritme for å finne balansefaktoren av en node
+Input: En node "v"
+Output: Returnerer høydeforskjellen mellom "v" sitt venstre- og høyrebarn
+Procedure Balancefactor(v):
+    if v == null then
+        return 0
+    return height(v.left) - height(v.right)
+
+    - Hjelpeprosedyre som sier hvor venstre eller høyretung node "v" er. 
+    - 0 betyr at "v" er balansert
+    - Et positivt tall betyr at treet er venstretungt
+    - Et negativt tall betyr treet er høyretungt
+
+Hva blir Kjøretidskompleksiteten?
+O(1), siden vi kun henter høydeforskjellen mellom to verdier. 

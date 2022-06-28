@@ -1,0 +1,103 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for Bubble sort:
+Input: Et array “A” med “n” elementer
+Output: Et sortert array med de samme “n” elementene
+Kjøretid: O(n^2)
+-------------------
+Procedure BubbleSort(A)
+	for (i <- 0) to (n - 2) do
+		for (j <- 0) to (n - i - 2) do  # Gjør at vi sjekker neste indeks
+			if A[j] > A[j + 1] then
+				A[j], A[j + 1] <- A[j + 1], A[j]
+		end
+	end
+-------------------
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for Selection sort:
+Input: Et array “A” med “n” elementer
+Output: Et sortert array med de samme “n” elementene
+Kjøretid: O(n^2)
+-------------------
+Procedure SelectionSort(A)
+	for (i <- 0) to (n - 1) do
+		k <- i
+		for (j <- i + 1) to (n - i) do  # øker indeks med 1 for A[i] 
+			if A[j] < A[k] then
+				k = j # Indeksen som peker på det minste elementet i liste
+		end
+		if i != k then
+			A[i], A[k] <- A[k], A[i]
+	end
+-------------------
+
+Kjøretid:
+SelectionSort er raskere enn BubbleSort siden den maksimalt gjør 
+n-1 bytter. Det å bytte verdier i en array, er dyrt for kjøretiden 
+så derfor den raskere enn BubbleSort selvom vi ikke kan bryte ut 
+av den indre løkken. 
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for Insertion sort:
+Input: Et array “A” med “n” elementer
+Output: Et sortert array med de samme “n” elementene
+Kjøretid: O(n^2)
+-------------------
+Procedure InsertionSort(A)
+	for (i <- 1) to (n - 1) do
+		j <- i
+		while j > 0 and A[j-1] > A[j] do
+		A[j-1], A[j] <- A[j], A[j-1]
+		j <- j - 1
+		end
+	end
+-------------------
+
+Kjøretid:
+Denne algoritmen er best å bruke for nesten sorterte arrayer eller små arrayer
+ettersom man kan bryte ut av den indre løkken. 
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Hjelpeprosedyre for å bygge en max-heap
+Input: En (uferdig) heap “A” med “n” elementer der “i” er roten
+Output: En mindre uferdig heap
+Kjøretid: O(nlog(n))
+-------------------
+Procedure BubbleDown(A,i,n)
+	largest <- i
+	left <- 2i + 1
+	right <- 2i + 2
+	if (left < n and A[largest] < A[left]) then
+		largest, left <- left, largest
+	if (right < n and A[largest] < A[right]) then
+		largest, right <- right, largest
+	if (i != largest) then
+		A[i], A[largest] <- A[largest], A[i]
+		BubbleDown(A,largest,n)
+-------------------
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for å bygge en max heap
+Input: Et array “A” med “n” elementer
+Output: “A” som en max heap
+-------------------
+Procedure BuildMaxHeap(A,n)
+	for i <- [n/2] down to 0 do
+		BubbleDown(A,i,n)
+	end
+-------------------
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for Heapsort
+Input: Et array A med “n” elementer
+Output: Et sortert array med de samme “n” elementene
+Kjøretid: O(nlog(n))
+-------------------
+Procedure HeapSort(A)
+	BuildMaxHeap(A,n)
+	for i <- n - 1 down to 0 do 
+		A[0], A[i] <- A[i], A[0]
+		BubbleDown(A,0,i)
+	end
+-------------------
+

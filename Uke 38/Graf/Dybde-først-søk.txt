@@ -1,0 +1,21 @@
+Algoritme for dybde-først søk
+Input: En graf G og en startnode s
+Output: Alle noder som kan nås fra s
+Procedure DFS(G,s)
+    visited(s) = true
+    for each edge (s,v) in G do
+        if visited(v) = false then
+            DFS(G,v)
+    end
+
+Input: En graf G
+Output: Alle noder som kan nås fra noden med lavest kant
+Procedure DFS-full(G)
+    for each vertex v in G do
+        if visited(v) = false then
+            DFS(G,v)
+    end
+
+Skriver ut fra venstre til høyre
+
+O(|v| + |E|): Undersøker hver node og kant for å utføre algoritmen. 

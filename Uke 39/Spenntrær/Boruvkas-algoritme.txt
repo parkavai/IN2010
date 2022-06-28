@@ -1,0 +1,28 @@
+Det som skjer i denne algoritmen er at, algoritmen sørger for at vi danner 
+komponenter, som er en samling av alle de minste kantene som forbinder enhver node.
+Vi tar da ulike komponenter og binder dem sammen for å utgjøre spenntreet vårt, hvor 
+får koblet alle noder sammen. 
+
+Algoritme for Boruvkås
+Input: En vektet, sammenhengende graf G
+Output: Et minimalt spenntre for G
+Procedure Boruvka(G):
+    initialisert T som en tom tre
+    for each vertex in G do:
+        add v in T
+    while T has more than one component do:
+        for each component C in T do:
+            for each vertex v in C do:
+                Comp(v) = C
+            cheapest(C) = None
+    for each edge e = (u,v) in G do:
+        if Comp(u) != Comp(v) then:
+            if w(e) < w(cheapest(Comp(u))) then:
+                cheapest(Comp(u)) - e
+            if w(e) < w(cheapest(Comp(v))) then:
+                cheapest(Comp(v)) - e
+    for each cheapest(C) != None do
+        add cheapest(C) to T 
+    return T 
+
+

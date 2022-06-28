@@ -1,0 +1,16 @@
+Algoritme for balansering av et AVL-tre:
+Input: En node "v"
+Output: En balansert node
+Procedure Balance(v):
+    if Balancefactor(v) < -1 then
+        if Balancefactor(v.right) > 0 then
+            v.right = RightRotate(v.right)
+        return LeftRotate(v)
+    if Balancefactor(v) > 1 then
+        if Balancefactor(v.right) < 0 then
+            v.left = LeftRotate(v.left)
+        return RightRotate(v)
+    return v
+
+Hva blir Kjøretidskompleksiteten?
+O(log(n)), siden vi fjerner en løvnode fra en gitt gren, går ikke igjennom hele treet. 

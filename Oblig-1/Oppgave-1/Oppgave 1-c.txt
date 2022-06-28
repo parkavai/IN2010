@@ -1,0 +1,24 @@
+Ting å vite:
+Benytter en liste-datastruktur som har innebygde funksjoner. Derfor kan kjøretiden for noen 
+funksjoner senket betraktelig som med push_back(A,x). 
+
+O-notasjon av push_back(A,x)-metoden:
+O(1) fordi vi tar listen og legger den til mot slutten av listen. Ikke noe iterativ eller 
+rekursiv løsning for denne algoritmen. Derfor blir det O(1).
+
+O-notasjon av push_front(A,x)-metoden:
+O(n), fordi vi iterer gjennom listen og legger til elementene i liste "A", inn i liste "B".
+Vi går rett og slett igjennom hele listen samt at vi legger til et element i starten av listen "B".
+Derfor blir det O(n) da kjøretiden øker basert på lengden av listen "A".
+
+O-notasjon av push_middle(A,x)-metoden:
+O(n), fordi vi iterer gjennom listen og legger til elementene i liste "A", inn i liste "B".
+Vi går rett og slett igjennom hele listen samt at vi legger til et element i midten av listen "B".
+Derfor blir det O(n) da kjøretiden øker basert på lengden av listen "A".
+
+O-notasjon av get(i)-metoden:
+O(n), fordi vi iterer gjennom listen for å hente ut elementet vårt fra listen. Hvis vi 
+tenker worst case hvor elementet som skal hentes potensielt kan ligge mot slutten av listen, 
+da må vi itere gjennom hele listen for å hente ut elementet. Vi har ikke en sortert liste 
+så dermed kan vi ikke benytte av binærsøk, noe som ville vært mer effektiv og da ville 
+vi fått O(log(n)). 

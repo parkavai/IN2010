@@ -1,0 +1,64 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritmen for innsetting i binære søketrære:
+Input: En node "v" og et element "x"
+Output: En oppdatert node "v" der en node som inneholder "x", er etterkommer av node "v"
+Kjøretid: O(h(height)), siden vi må iterere gjennom pekerne fra rotnoden hvor worst-case blir den dypeste løvnoden
+-------------------
+Procedure Insert(v,x):
+    if (v == null) then
+        v <- new Node(x)
+    else if (x < v.element) then
+        v.left <- Insert(v.left, x)
+    else if (x > v.element) then
+        v.right <- Insert(v.right,x)
+    return v
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritmen for oppslag i binære søketrære:
+Input: En node "v" og et element "x"
+Output: Dersom "x" forekommer i en node "u" som en etterkommer av "v", returner "u", ellers "null" 
+Kjøretid: O(h)
+-------------------
+Procedure Search(v,x):
+    if (v == null) then
+        return null
+    if (v.element == x) then
+        return v
+    if (x < v.element) then
+        return Search(v.left, x)
+    if (x > v.element) then
+        return Search(v.right, x)
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for å slette noder i et binært søketre:
+Input: En node "v" og et element "x" 
+Output: Dersom "x" forekommer i en node "u" som en etterkommer av "v", fjern "u"
+Kjøretid: O(h)
+-------------------
+Procedure Remove(v,x):
+    if (v == null) then:
+        return null
+    if (x < v.element) then:
+        v.left <- Remove(v.left,x)
+        return v
+    if (x > v.element) then:
+        v.right <- Remove(v.right,x)
+        return v
+    if (v.left == null) then:
+        return v.right
+    if (v.right == null) then:
+        return v.left
+    u <- FindMin(v.right)
+    v.right <- Remove(v.right(), u.element)
+    return v
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for å finne minste node i binære søktrær:
+Input: En node "v" 
+Output: Returnerer noden som inneholder den minste etterkommeren av "v".
+Kjøretid: O(log(n)) siden vi kun iterer i venstre subtre
+-------------------
+Procedure FindMin(v):
+    if (v.left == null) then:
+        return v
+    return FindMin(v.left)

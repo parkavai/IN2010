@@ -1,0 +1,23 @@
+Prim-algoritmen hadde en startnode som vi bygget spenntreet fra. Kruskal derimot har ikke en 
+startnode hvor vi bygger veien fra den billigste noden(altså kanten med billigst vekt) i spenntreet.  
+
+Input: Tar inn en graf
+Output: Sender ut et spenntre
+Procedure Kruskal(G)
+    Initialiserer "T" som en tom tre
+    Initialiserer "Q" altså en heap som inneholder alle kanter
+    for each vertex v in G do
+        define C(v) = {v}
+        // Kløster ansees som kanter mellom noder som ikke er lagt til i treet enda
+    while T has fewer than n-1 edges do 
+        // Et spenntre har maks |n|-1 kanter
+        (u,v) = Q.removeMin()
+        // Henter minst-vektede kant 
+        if C(u) != C(v) then
+            // Sjekker hvis kløster(u) ikke er forbundet til kløster(v)
+            add(u,v) to T
+            // Da legger vi til kanten i spenntreet
+            C(u), C(v) = C(u) union C(v)
+            // Deretter setter vi disse nodene sammen til et kløster for å unngå at vi går igjennom samme kløster 
+    return T
+         

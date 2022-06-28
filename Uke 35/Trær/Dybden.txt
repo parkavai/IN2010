@@ -1,0 +1,13 @@
+Dybden til et tre
+    - Dybden til en node er mer enn foreldernoden
+    - Roten har dybde "0"
+    - Siden vi tillater et tomt tre, gir vi det dybde "-1"
+    - Dybden vil bety at vi finner hvor lang treet er fra en vilkårlig node "v", også går vi oppover mot roten. 
+
+Algoritme for å finne dybden til et tre:
+Input: En node "v"
+Output: Dybden av noden
+Procedure Depth(v)
+    if(v == null) then
+        return -1
+    return 1 + Depth(v.parent), rekursivt kall hvor vi da finner dybden så "adderer" vi med 1 som vi går fra dybden mot roten

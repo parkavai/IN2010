@@ -1,0 +1,22 @@
+Hva er Heap?
+Et binært søketre men hvor tallene blir sort nedenifra. Viktig å huske at 
+foreldernode skal ha mindre verdi enn barnenoden. Treet skal alltid være 
+komplett, kan si at den skal være balansert. Skulle foreldernoden ha større 
+verdi, så bytter vi om plass til forelder og barnenoden inntill kravet er oppfylt, 
+at foreldernoden skal alltid ha mindre verdi enn barnenoden. 
+
+                                  0
+                            1          2
+                         3    10    8     5  
+                      7    
+
+Hvorfor bruke Array i Heap?
+Gjør det lettere å utføre algoritmer i Heap gjennom Array. 
+
+[1,3,2,7,10,8,5]
+
+Om vi skal finne barna til 2, så kan vi addere indeksen med 2, 
+og finner da barnet til 2, vil da ligge i indeks 5. Skal vi finne forelderen 
+til 8, så subtraherer vi først med 1, så dividerer vi indeksen til tallet 8, med 2. 
+Tallet vil ligge i indeks 2. 
+

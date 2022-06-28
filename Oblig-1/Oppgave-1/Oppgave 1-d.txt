@@ -1,0 +1,5 @@
+Hvis vi vet at "N" er begrenset, hvordan påvirker det kompleksiteten i O-notasjon?
+Kjøretidskompleksiteten vil synke, men det er ikke slik at vi får O(1). Basert på
+måten jeg har implementert programmet så har jeg iterative løsninger for prosedyrene
+push_middle(A,x), push_front(A,x) og get(i). Selvom "N" er begrenset så må vi allikevel 
+gjennom hele listen. 

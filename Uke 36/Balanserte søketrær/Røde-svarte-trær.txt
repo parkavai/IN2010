@@ -1,0 +1,26 @@
+Hva er rød-svarte trær?
+    -   Trær hvor hver node klassifiseres som "røde" eller "svarte".
+    -   Roten til treet er "svart"
+    -   En rød node kan ikke ha et "rødt" barn/forelder
+    -   Hver gren fra roten til et tomt tre inneholder sorte noder 
+    -   De er i likhet med AVL-trær, altså balanserte binære søketrær. 
+
+Likhetene med AVL-trær:
+    -   De er begge selvbalanserende
+    -   De har begge O(log(n)) på innsetting, sletting og oppslag
+    -   De anvender begge rotasjoner for et krav om balanse
+
+Forskjellene mellom de to trærne:
+    -   Rød-svarte trær har svakere krav om balanse enn AVL
+    -   Rød-svarte trær bruker mindre minne, siden vi trenger ikke å lagre
+    -   Rød-svarte trær bruker færre rotasjoner 
+
+Verste tilfelle
+    -   En gren med bare svarte noder
+    -   En annen gren med annenhver svart eller rød node(Tenke at slik blir løsningen da en 
+        rød node ikke kan ha et rødt barn/forelder)
+
+
+
+
+

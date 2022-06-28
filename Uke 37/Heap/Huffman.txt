@@ -1,0 +1,46 @@
+Hva er Huffman-tre?
+
+    -   Noder i et hufman-tre har et element, samt venstre og høyre. 
+        I tillegg til en frekvens "freq" som nodene ordnes etter.
+    -   For hvert par av symbol og frekvens, så skal man opprette en node 
+        (uten barnet) og sett noden inn i prioritetskøen. Vi benytter en 
+        prioritetskø da Huffman blir enkelt å implementere. 
+    -   Så lenge det er mer enn et element i køen, så skal 
+        man fjerne de to minste nodene v1 og v2
+    -   Lag en ny node "u" der v1 og v2 er barn av u og 
+        u.freq = v1.freq + v2.freq
+    -   Tilslutt plasser "u" på køen
+
+Ting å vite
+Kodingen benyttes for å komprimere data, forestill 
+at du blir gitt en mengde med symboler hvor hvert 
+symbol har en gitt frekvens. Vi ønsker å representere 
+hvert symbol med en bitstreng slik at strenger av symbolene 
+blir så korte som mulig. En slik mapping av symboler til 
+bitstrenger kalles "enkoding" hvor disse bitstrengene kalles 
+"Kodeord". Korte bitstrenger for symboler som forekommer ofte,
+lengre bitstrenger for symboler som forekommer sjeldent. 
+
+Invarianter:
+Med enkoding av variabel lengde må vi passe på at vi vet 
+    - når et symbol slutter 
+    - og når et annet begynner
+Trikset er å ikke la noen kodeord være et prefiks av et annet
+    - Ingen kodeord kan være en forlengelse av et annet 
+    - hvis 010 er et koder kan 0001 være et kodeord, ikke 0101/0100
+
+Algoritme: Bygge Huffman trær
+Input: En mengde C med par <s,f> der s er et symbol og f er en frekvens
+Output: Et Huffman-tre
+Procedure Huffman(C)
+    Q <- new PriorityQueue
+    for <s,f> element i C do:
+        Insert(Q, new Node(s,f,null,null))
+    end
+    while Size(Q) > 1 do 
+        v1 <- RemoveMin(Q)
+        v2 <- RemoveMin(Q)
+        f <- v1.freq + v2.freq
+        Insert(Q, new Node(null, f, v1, v2))
+    end
+    return RemoveMin(Q)

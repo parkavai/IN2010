@@ -1,0 +1,59 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme ved innsetting
+Input: Element som har en gitt nøkkel og verdi
+Output: Lagt til elementet i bøtten 
+-------------------
+def settInn_SepChain(key,value):
+    i = hash(key)
+    
+    bucket = A[i]
+    if bucket == null then 
+        newBucket = new Linkedlist().add(Element(key,value))
+        A[i] = newBucket
+    else: 
+        for Element(k,v) in bucket do:
+            if key == k then:
+                element.v = value 
+                return 
+        end 
+        bucket.add(Element(key,value))
+    
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme ved oppslag
+Input: Element som har en gitt nøkkel og verdi
+Output: Henter ut elementet 
+-------------------
+def oppslag_SepChain(key,value):
+    i = hash(key)
+    
+    bucket = A[i]
+    if bucket == null then 
+        return null 
+
+    else: 
+        for Element(k,v) in bucket do:
+            if key == k then:
+                return Element(k,v)
+        end 
+        return null 
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme ved sletting
+Input: Element som har en gitt nøkkel og verdi
+Output: Fjerner elementet
+-------------------
+def sletting_SepChain(key,value):
+    i = hash(key)
+    
+    bucket = A[i]
+    if bucket == null then 
+        return null 
+
+    else: 
+        for Element(k,v) in bucket do:
+            if key == k then:
+                Fjern Element(k,v)
+                return Element(k,v)
+        end 
+        return null 

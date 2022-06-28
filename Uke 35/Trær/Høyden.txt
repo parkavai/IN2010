@@ -1,0 +1,22 @@
+Høyden til et tre
+    - Høyden av et tre er gitt av den høyeste avstanden til en etterkommer
+    - Det vil si dybden av den dypeste løvnoden
+    - Vi går da mot bunnen av treet
+
+Algoritme for å finne høyden til et tre:
+Input: En node "v"
+Output: Høyden av noden
+Procedure Height(v)
+    if(v == null) then
+        return -1
+    h <- 0
+    for (v' element i v.children) do
+        h <- Max(h.height(v')), rekursivt kall hvor "h" representerer høyden tl noden avhengig hver node sin høyeste dybde.  
+    end
+    return 1 + h
+
+Hva gjør algoritmen?
+Finner høyden til en gitt node, f.eks rotnoden og angir hvilken høyde den representerer. Rotnoden vil da ha 
+høyeste, høyden av alle andre barnenoder siden den er helt på toppen. Men for å forklare algoritmen så blir 
+dette et rekursivt kall hvor vi da rekurserer gjennom noden vi skal finne høyden til. Vi oppdaterer 'h' variablen 
+for hver gang da ulike grener kan ha lengre høyder. Tilslutt øker vi høyden med 1 og finner da høyden til en gitt node. 

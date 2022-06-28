@@ -1,0 +1,21 @@
+Algoritme for bredde-først søk
+Input: En graf G og en startnode s
+Output: Alle noder som kan nås fra s
+Procedure BFS(G,s)
+    visited(s) = true
+    L0 = [s]
+    while Li not empty do
+        Li+1 = []
+        for each vertex v in Li do 
+            for each edge(v,w) do
+                if visited(w) = false then
+                    visited(w) = true
+                    add w to Li+1
+                end
+            end
+        end
+    end
+
+Skriver ut roten og nedover
+
+O(|V| + |E|): Undersøker hver node og kant for å utføre algoritmen. 

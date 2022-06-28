@@ -1,0 +1,39 @@
+Hva er O-notasjon?
+O-notasjon er en matematisk notasjon som gir en asymptotisk tilnærming til en funksjon g(x) som skrives O(g(x)). Notasjonen gir altså 
+en enkel beskrivelse av utviklingen til g(x) når x øker. I IT-sammenheng så vil dette være relevant for kjøretiden for gitte algoritmer 
+altså tiden det tar for at en algoritme skal kjøre. 
+
+Begreper: 
+"c": er en konstant som avhenger seg av hardware, programmeringspråk, software enviroment, implementasjonsdetaljer osv.
+
+Instans "n": En størrelse som definerer kjøretiden av algoritmen i form av input. 
+
+nO: En "Integer" konstans altså et tall konstant. 
+
+Definisjon:
+La f(n) være kjøretiden på en instans av størrelse "n" og la "g" være en funksjonen fra heltall til reelle tall. f(n) er O(g(n)) hvis det 
+finnes en konstant "c" og en nO >= 1 slikt at for alle n >= nO: 
+
+f(n) <= cg(n)
+
+Vi ser at f(n) vil alltid være tilnærmet mindre eller lik cg(n). Den vil altså aldri bli over. 
+
+Eksempler:
+3n er O(n): for c = 4 er 3n <= cn = 4n
+
+Her ser vi at 3n (f(n)) er mindre eller lik 4n (cg(n)) og følger regelen over punkt til punkt. 
+
+10^141 er O(1): for c = 10^141 + 1 er 10^141 <= cn = 10^141 + 1
+
+For et stort tall så kan vi bare sette inn 1 siden det er et stort tall så ved å addere dette tallet med "cn" altså 10^141 med 1, så vil den være 
+større enn f(n).
+
+Betegnelser:        Stor-O          Notat
+Konstant tid        O(1)            Vokser ikke når "n" blir større
+Logaritmisk tid     O(log(n))       I praksis veldig raskt
+Linær tid           O(n)            I praksis veldig raskt
+Kvadratisk tid      O(n^2)          Ofte raskt nok
+Kubisk tid          O(n^3)          Ofte raskt nok
+Polynomiell tid     O(n^k)          Regnes som medgjørlig
+Eksponensiell tid   O(a^n),a > 1    For treigt, blir skjeldent brukt
+

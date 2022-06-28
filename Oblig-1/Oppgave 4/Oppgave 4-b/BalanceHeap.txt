@@ -1,0 +1,15 @@
+Algoritme for BalanceHeap
+Input: En heap
+Output: Utskrift av en helt balanserende tre
+Procedure balansertTre(A){
+    if A.size() = 0 then
+        return;
+    B <- []
+    halve <- A.size()/2
+    while B.size() < halve then
+        B.add(A.fjern())
+    print(A.fjern())
+    balansertTre(A)
+    balansertTre(B)
+}
+

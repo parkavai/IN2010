@@ -1,0 +1,46 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for å finne dybden til et tre:
+Input: En node "v"
+Output: Dybden av noden
+-------------------
+Procedure Depth(v)
+    if(v == null) then
+        return -1
+    return 1 + Depth(v.parent), rekursivt kall hvor vi da finner dybden så "adderer" vi med 1 som vi går fra dybden mot roten
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for å finne høyden til et tre:
+Input: En node "v"
+Output: Høyden av noden
+-------------------
+Procedure Height(v)
+    if(v == null) then
+        return -1
+    h <- 0
+    for (v' element i v.children) do
+        h <- Max(h.height(v')), rekursivt kall hvor "h" representerer høyden tl noden avhengig hver node sin høyeste dybde.  
+    end
+    return 1 + h
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for preorder traversering til et tre:
+Input: En node "v"(som ikke er null)
+Output: Utfør en operasjon på "v" først og barna til "v" etterpå
+-------------------
+Procedure Preorder(v)
+    Operate on v
+    for (v' element i v.children) do
+        Preorder(v)
+    end
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for postorder traversering til et tre:
+Input: En node "v"(som ikke er null)
+Output: Utfør en operasjon på "v" først og barna til "v" etterpå
+-------------------
+Procedure Postorder(v)
+    for (v' element i v.children) do
+        Postorder(v)
+    end
+    Operate on v
+

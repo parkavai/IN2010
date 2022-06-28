@@ -1,0 +1,14 @@
+Hva er en graf?
+Følger samme definisjon som fra 1150, en graf har noder og nodene bindes gjennom 
+en kant. Vi kan ha løkker(En node har en kant som går til segg selv) og parallele kanter
+(Vi kan gå fra A til B, og fra B til A). Det samme gjelder både for stier og veier, en "sti" 
+betyr at vi går innom noder maks 1 gang, så for hver gang du går fra en node til en hver 
+annen node, så brenner du en bro, eks: A,B,C,D. I en "vei" derimot så brenner vi ikke broer
+så vi kan gå innom enhver annen node mer en gang, eks: A,B,C,D,C. "Grader" gjelder det samme, 
+betyr antall kanter hver node har bundet seg til, eks: A har 3 kanter bundet til seg så den har 
+da grad 3. 
+
+Rettede grafer
+Grafer hvor vi har to noder hvor vi kan gå fra den ene til den andre
+men ikke motsatt. Altså jeg kan gå fra A til B, men ikke B til A. 
+

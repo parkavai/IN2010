@@ -1,0 +1,15 @@
+Hva er trær?
+Oppsettet med trær er lik oppsettet i 1150 hvor vi hadde en rotnode også stammer det løvnøder fra den. 
+Ting å huske på for trær:
+    - Trær kan er sammenhengende grafer, vil si at vi kan gå fra enhver node til enhver annen node. 
+    - Trær har ingen sykel, altså at vi kan gå fra en node "v" også tilbake til der vi startet altså tilbake mot "v"
+
+Anta at "v" er en node, da gir:
+    - v.element dataen som er lagret i noden
+    - v.parent foreldernoden til v
+    - v.children barnenoden til v
+
+
+
+
+

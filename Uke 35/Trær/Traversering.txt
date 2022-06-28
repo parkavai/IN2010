@@ -1,0 +1,27 @@
+Traversering blant noder i et tre
+    - Finnes ulike måter å traversere gjennom et tre på
+    - Underveis har vi en operasjon vi ønsker å utføre
+    - I mange operasjonen så har "Rekkefølgen" vi utfører operasjonene på, en betydning
+        - Preorder: Utfører operasjonen på seg selv først, barna etterpå
+        - Postorder: Utfører operasjonen på barna, deretter seg selv   
+    - For å kopiere et tre kan man bruke preorder, ikke postorder. Årsaken er at vi da ikke går fra barnenodene mot Roten
+    - For å slette et tre kan man bruke postorder, ikke preorder. Grunnen er at vi skal da slette barnenodene, ikke hele 
+      foreldernoden og dets barnenoder videre. 
+
+Algoritme for preorder traversering til et tre:
+Input: En node "v"(som ikke er null)
+Output: Utfør en operasjon på "v" først og barna til "v" etterpå
+Procedure Preorder(v)
+    for (v' element i v.children) do
+        Preorder(v)
+    end
+
+Algoritme for postorder traversering til et tre:
+Input: En node "v"(som ikke er null)
+Output: Utfør en operasjon på "v" først og barna til "v" etterpå
+Procedure Postorder(v)
+    for (v' element i v.children) do
+        Postorder(v)
+    end
+    Operate on v
+    

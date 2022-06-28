@@ -1,0 +1,21 @@
+Algoritme for å sletting av node i AVL-tre:
+Input: En node "v" og et element "x"
+Output: Dersom "x" forekommer i en node "u" som en etterkommer av "v", fjern "u".
+Kjøretid: O(log(n)) siden vi kun iterer i venstre subtre
+Procedure Remove(v):
+    if v == null then
+        return null
+    if x < v.element then
+        v.left <- Remove(v.left, x)
+    else if x > v.element then
+        v.right <- Remove(v.right, x)
+    else if v.left = null then
+        v <- v.right
+    else if v.right = null then
+        v <- v.left
+    else 
+        u <- FindMin(v.right)
+        v.element <- u.element 
+        v.right <- Remove(v.right, u.element)
+    v.height <- 1 + max(Height(v.left), Height(v.right))
+    return Balance(v)

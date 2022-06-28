@@ -1,0 +1,17 @@
+Hva er en topologisk graf?
+Rettede grafer, som er asykliske. Kan da ikke være sykler. 
+Hensikten med slike grafer er at vi er ute etter avhengigheter,
+å stokke om nodene i en rekkefølge etter da avhengighetene deres. 
+
+F.eks, si en morgenrutine, som er følgende:
+Pusse tenner, frokost, ta på klær, gå til skolen. 
+
+Vi kan ikke gå til skolen, uten å ha tatt på klær, 
+vi kan ikke ha tatt på klær uten å ha spist frokost, 
+vi kan ikke spise frokost uten å ha pusset tenner. 
+
+Derfor må vi pusse tenner først for at de andre avhengighetene
+skal inntreffe. Slik kan sees som topologiske grafer, hvor vi 
+finner veien etter avhengighetene våres. 
+
+

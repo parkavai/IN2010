@@ -1,0 +1,40 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritmen for å finne separasjonsnoder kalles “Hopcroft-Tarjan” og ser slik ut:
+Input: En graf G, en startnode u og dybden
+Output: Alle separasjonsnoder i inputgrafen “G”
+Kjøretid: O(|V| + |E|)
+-------------------
+Procedure HopcroftTarjan(G,u,depth)
+	visited[u] = true
+	low[u] = index[u] = depth
+	childCount = 0
+	for each edge (u,v) in G do 
+		if visited[v] = false then
+			childCount = childCount +1 
+			HopcroftTarjan(G,u,depth + 1)
+			low[u] = min(low[u], low[v])
+			if index[u] <= low[v] then 
+				sep_vertices.add(u)
+		else 
+			low[u] = min(low[u], index[v])
+	if index[u] = 1 then 
+		if childCount > 1 then 
+			sep_vertices.add(u)
+	return sep_vertices
+
+Analyse ved algoritmen:
+Vi benytter av samme tankegang som ved DFS når vi skal finne separasjonsnodene hvor vi har en 
+visited[u] for å holde styr på noder som er blitt besøkt og som mangler å besøke. "low" uttrykker 
+den minste noden som vi kan backtracke til. Imens "index" uttrykker rekkefølgen som vi traverserer 
+gjennom grafen hvor index[i] vil tilsvare rotnoden. Low og index vil tilsvare dybden vi befinner 
+oss i treet. Deretter traverserer vi gjennom kantene og leter etter ubesøkte noder akkurat som 
+ved DFS, hvor de nodene vi ikke har vært innom vil vi da kjøre algoritmen på nytt rekursivt. Hensikten 
+er å oppdatere dybden, neste kant som skal traverseres og oppdatere både low og index også. Videre må vi 
+vurdere å erstatte low-nummeret gjennom min(low[u], low[v]) hvis low[v] er mindre enn low[u]. Deretter 
+har vi en if-sjekk hvor vi sjekker om vi har en separasjonsnode i index[u] gjennom å sjekke om 
+"index[u] <= low[v]". Skulle betingelsen inntreffe så har vi funnet en separasjonsnode og legger denne  
+til i listen av separasjonsnoder. Skulle ikke første if-betingelse oppfylle altså at vi har allerede 
+traversert i gjennom node[v], så skal vi eventuelt endre low-nummeret eller ikke. Etter at vi har vært 
+innom for-loopen så skal vi ha en sjekk for rotnoden altså index[u] som tilsvarer 1. For å finne 
+separasjonsnode så husket vi at om rotnoden hadde mer enn "1" barn, så er det en separasjonsnode og 
+det er dette vi sjekker i betingelsen og legger den til i listen av separasjonsnoder.   

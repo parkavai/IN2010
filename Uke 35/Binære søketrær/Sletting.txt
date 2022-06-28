@@ -1,0 +1,22 @@
+Algoritme for å slette noder i et binært søketre:
+Input: En node "v" og et element "x" 
+Output: Dersom "x" forekommer i en node "u" som en etterkommer av "v", fjern "u"
+Procedure Remove(v,x):
+    if (v == null) then:
+        return null
+    if (x < v.element) then:
+        v.left <- Remove(v.left,x)
+        return v
+    if (x > v.element) then:
+        v.right <- Remove(v.right,x)
+        return v
+    if (v.left == null) then:
+        return v.right
+    if (v.right == null) then:
+        return v.left
+    u <- FindMin(v.right)
+    v.right <- Remove(v.right(), u.element)
+    return v
+
+Hva blir Kjøretidskompleksiteten?
+O(n), siden vi må iterere igjennom hele treet mot løvnoden for å fjerne elementet samt at vi kjører andre hjelpeprosedyrer også. 

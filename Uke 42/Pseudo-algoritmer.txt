@@ -1,0 +1,119 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme: Merge
+Input: To sorterte arrayer A(1) og A(2) og et array A, der |A1| + |A2| = |A| = n
+Output: Et sortert array “A” med elementene fra A1 og A2
+-------------------
+
+Procedure Merge(A1,A2,A):
+    i <- 0
+    j <- 0
+    while i < |A1| and j < |A2| do
+
+        if A1[i] < A2[j] then
+            A[i +j] <- A1[i]
+            i <- i + 1
+
+        else
+            A[i +j] <- A2[j]
+            j <- j + 1
+
+        end
+    end
+
+    while i < |A1| do 
+
+        A|i + j| <- A1[i]
+        i <- i + 1
+    end
+
+    while j < |A2| do 
+
+        A|i + j| <- A2[j]
+        j <- j + 1
+    end
+
+    return A
+
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme ved mergesort
+Input: Et array “A” med “n” elementer
+Output: Et sortert array med de samme “n” elementene
+-------------------
+Procedure MergeSort(A)
+	if n <= 1 then
+		return A
+	i <- [n/2]
+	A1 <- MergeSort(A[0,,,i-1])
+	A2 <- MergeSort(A[i,,,n-1])
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme: Partition
+Input: Et array “A” med “n” elementer, “low” og “high” er indekser
+Output: Flytter elementer som er henholdsvis mindre og større til venstre og høyre enn en gitt index som returneres
+-------------------
+Procedure Partition(A,low,high)
+	p <- ChoosePivot(A,low,high)
+	A[p],A[high] <- A[high], A[p]
+	pivot <- A[high]
+	left <- low
+	right <- high - 1
+	while left <= right do
+		while left < right and A[left] <= pivot do
+			left <- left + 1
+		end
+		while right < left and A[right] >= pivot do
+			right <- right - 1
+		end
+	end
+	A[left], A[high] <- A[high], A[left]
+	return left
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme: Quicksort
+Input: Et array “A” med “n” elementer, “low” og “high” er indekser
+Output: Et sortert array med de samme “n” elementene
+-------------------
+Procedure Quicksort(A,low,high)
+	if low >= high then
+		return A
+	p <- Partition(A,low,high)
+	Quicksort(A,low, p-1)
+	Quicksort(A,p+1,high)
+	return A
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme: Bucket sort
+Input: Et array “A” med “n” elementer
+Output: Et array med de samme “n” elementene sortert etter nøkler
+-------------------
+Procedure BucketSort(A)
+	B <- [] // La B være et array med “N” tomme lister
+	for i <- 0 to n-1 do
+		la “k” være nøkkelen assosiert med A[i]
+		Legg til A[i] på slutten av listen B[k]
+	end
+	j <- 0
+	for k <- 0 to N - 1 do
+		for hver x i listen B[k] do
+			A[j] <- x
+			j <- j + 1
+		end
+	end
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme: Radix sort
+Input: Et array “A” med “n” positive heltall
+Output: Et sortert array med de samme “n” positive heltallene 
+-------------------
+Procedure RadixSort(A)
+	d <- antall siffer i det største tallet
+	for i <- d down to 0 do
+		A <- BucketSort(A) etter de “i”te siffere
+	end
+return A
+

@@ -1,0 +1,20 @@
+Algoritme for topologisk sortering(Kan benyttes for å finne ut om grafen har en sykel på grunn av siste linje)
+Input: En graf G med n noder
+Output: En topologisk ordning av nodene i G, eller G har en sykel
+Procedyre TopologiskSortering(G)
+    S = new empty Stack
+    for each vertex v in G do 
+        inCount(v) = degree in(v)
+        if inCount (v) = 0 then S.push(v)
+    i = 1
+    while S not empty do 
+        v = S.pop()
+        output[i] = x
+        i = i + 1
+        for each edge(v,w) in G do
+            inCount(w) = inCount(w) - 1
+            if inCount(w) =  0 then Su.push(w)
+    if i > n then return output
+    return "G has a cycle"
+
+O(|V| + |E|): Undersøker hver node og kant for å utføre algoritmen. 

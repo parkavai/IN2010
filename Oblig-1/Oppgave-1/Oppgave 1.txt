@@ -1,0 +1,45 @@
+Input: En liste "A" og ett element "x"
+Output: En oppdatert liste hvor elementet "x" ligger helt bakerst av listen.
+Procedure push_back(A, x):
+    A.add(x)
+
+Input: En liste "A" og ett element "x"
+Output: En oppdatert liste hvor elementet "x" ligger helt foran av listen.
+Procedure push_front(A, x):
+    B <- []
+    B.add(x)
+    for element in A do:
+        B.add(element)
+    end
+    A = B
+
+Input: En liste "A", ett element "x" og størrelse "k"
+Output: En oppdatert liste hvor elementet "x" ligger i midten av listen
+Procedure push_middle(A, x):
+    k <- length(A)
+    if k > 1 then 
+        posisjon <- ((k+1)/2)
+        B <- []
+        teller <- 0
+        for element in A do:
+            if(teller = posisjon) then
+                B.add(x)
+            B.add(element)
+            teller += 1
+        end
+        A = B
+    else 
+        A.add(x)
+
+Input: En liste "A", ett element "i" 
+Output: Henter ut element "i"
+Procedure get(A, i):
+    return A.get(i)
+
+
+
+
+        
+
+
+        

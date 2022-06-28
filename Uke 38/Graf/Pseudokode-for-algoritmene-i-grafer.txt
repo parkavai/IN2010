@@ -1,0 +1,115 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Alg:    DFS, Dybde-først søk
+Input:  En graf G og en startnode s
+Output: Alle noder som kan nås fra s
+-------------------
+def DFS(G,s):
+    visited(s) = true                   # Markerer start-noden som besøkt
+    for each edge (s,v) do:             # For hver kant ut fra start-noden,
+        if visited(v) = false then:     # om kanten leder til en ikke-besøkt node,
+            DFS(G,v)                    # kall på DFS med den
+    end
+-------------------
+Kjøretid tilsvarer = O(|V|+|E|)
+Basert på tanken bak stack: Last in, first out
+-------------------
+
+Analyse av DFS-algoritmen
+DFS blir brukt for å traversere gjennom en graf. Dette gjøres ved 
+at vi har en stack hvor vi fyller noder som ikke er blitt besøkt 
+enda. Deretter sjekker vi om det finnes andre noder som vi kan nå, 
+som vi da fyller i denne stacken. Dette ser vi i algoritmen hvor vi 
+har en "visited(s)" hvor vi sjekker om noden "s" og naboene til "s",
+er besøkt eller ikke. Hvis de er besøkt så fortsetter vi søket og ser 
+etter andre noder og kanter som ikke er besøkt. Ellers så må vi foreta 
+en ny DFS-søk for den gitte noden som ikke er blitt besøkt og legger den 
+til i stacken. For å oppsummere så er DFS en algoritme hvor vi har en 
+stack hvor vi fyller noder som ikke er blitt besøkt. Dette gjør vi helt 
+dypt inn i treet og gjøres da rekursivt som vist over i pseudokoden. 
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Alg:    BFS, Bredde-først søk
+Input:  En graf G og en startnode s
+Output: Alle noder som kan nås fra s
+-------------------
+def BFS(G,s):
+    queue = new empty []                     
+
+    visited(s) = true                   # Markerer start-noden som besøkt
+    queue.add(s)                        # og legger den til i køen
+
+    while queue.size() != 0:            # Mens det er noder igjen i køen,
+        v = queue.pop(0)                # fjern neste node
+
+        for each edge (v, w) do:        # For hver kant ut fra noden,
+            if visited(w) = false then: # om kanten leder til en ikke-besøkt node,
+                visited(w) = true       # så besøker vi den
+                queue.add(w)            # og legger den til i køen
+            end
+        end
+    end
+-------------------
+Kjøretid tilsvarer = O(|V|+|E|)
+Basert på tanken bak kø: First in, first out
+-------------------
+
+Analyse av BFS-algoritmen
+BFS blir brukt for å traversere gjennom en graf. Dette gjøres ved 
+at vi har en kø hvor vi fyller noder som ikke er blitt besøkt 
+enda. Deretter sjekker vi om det finnes andre noder som vi kan nå, 
+som vi da fyller i denne stacken. Dette ser vi i algoritmen hvor vi 
+har en "visited(s)" hvor vi sjekker om noden "s" og naboene til "s",
+er besøkt eller ikke. Hvis de ikke er besøkt så setter vi den gitte noden som 
+besøkt og legger den til i køen. Når vi da foretar nytt søk så vil vi da 
+poppe den nye noden som ble lagt til og lete etter nabonoder fra den noden som 
+nettopp ble fjernet. 
+
+------------------------------------
+Hva er forskjellen mellom BFS og DFS?
+------------------------------------
+BFS sjekker lag for lag hvor de sjekker nabokanter i et gitt lag. 
+Den sørger for at vi sjekker alle nodene lag for lag helt mot dybden. 
+DFS dermiot sjekker ubesøkte noder og traverserer helt til dybden. Når den 
+har kommet til dybden så vil DFS backtracke og se etter eventuelle kryss 
+hvor vi kunne traversere gjennom kanter som førte til andre ubesøkte noder.  
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Alg: Topologisk Sortering
+Input: En graf G med n noder (DAG-graf: rettede, asykliske)
+Output: En topologisk ordning av nodene i G,
+        eller G har en sykel
+-------------------
+def TopologiskSortering(G):
+    S = new empty Stack
+    for each vertex v in G do:          # Legger til alle noder med null inngående kanter
+        if inDeg(v) == 0 then:          # (dvs. inDeg=0) på stacken
+            S.push(v)
+    end
+
+    i = 0                               # Teller for antall elementer vi "utfører"
+    output = []
+    while S not empty do:               # Mens vi enda har flere ting igjen å "uføre"
+        v = S.pop()                     # Plukker ut en node og
+        output[i] = v                   # "utfører" den
+        i += 1
+
+        for each edge (v,w) do:         # Minsker inDeg for alle naboene til v,
+            inDeg(w) -= 1
+            if inDeg(w) == 0 then:      # legger dem til på stacken om de får inDeg = 0
+                S.push(w)
+        end
+    end
+
+    if i == G.size() then:
+        return output    
+    else:                               # Om vi ikke har utført like mange noder 
+        return "G has a cycle"          # som det er i grafen, så har vi en syklus
+
+-------------------
+Kjøretid tilsvarer: O(|V| + |E|)
+-------------------      
+
+
+
+
+ 

@@ -1,0 +1,5 @@
+I rettede grafer så fungerer kun bredde-først-søk, siden i hvert lag, så er nodene rettet i hvert lag så 
+en dybde-først-søk vil ikke være nyttig her. 
+
+For å bygge et spenntre fra slike trær, så er vi nødt til å ha en startnode for å kunne inkludere alle noder.
+Vi bruker samme tankegang, lager en vei med de laveste vektene i hver kant for å bygge den korteste stien. 

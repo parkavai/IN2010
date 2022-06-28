@@ -1,0 +1,15 @@
+Algoritmen for oppslag i binære søketrære:
+Input: En node "v" og et element "x"
+Output: Dersom "x" forekommer i en node "u" som en etterkommer av "v", returner "u", ellers "null" 
+Procedure Search(v,x):
+    if (v == null) then
+        return null
+    if (v.element == x) then
+        return v
+    if (x < v.element) then
+        return Search(v.left, x)
+    if (x > v.element) then
+        return Search(v.right, x)
+
+Hva blir Kjøretidskompleksiteten?
+O(n) i worst case da vi må i verste tilfellet, iterere gjennom alle pekere. 

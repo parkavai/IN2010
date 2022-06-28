@@ -1,0 +1,11 @@
+Algoritme for BalanceArray
+Input: En sortert liste 
+Output: Utskrift av en helt balanserende tre
+Procedure balansertTre(A, low, high){
+    if low > high then
+        return;
+    print(A[hentMidten(low,high)])
+    balansertTre(A, hentMidten(low,high) + 1, high)   
+    balansertTre(A, high, hentMidten(low,high) - 1)   
+}
+

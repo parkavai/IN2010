@@ -1,0 +1,11 @@
+Algoritme for å finne minste node i binære søktrær:
+Input: En node "v" 
+Output: Returnerer noden som inneholder den minste etterkommeren av "v".
+Procedure FindMin(v):
+    if (v.left == null) then:
+        return v
+    return FindMin(v.left)
+
+Hva blir Kjøretidskompleksiteten?
+O(log(n)) siden vi går igjennom venstre subtre, ikke både venstre og høyre. 
+    

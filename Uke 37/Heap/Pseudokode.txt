@@ -1,0 +1,54 @@
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for innsetting i Heap
+Input: Et array A som representerer en heap med n elementer og et element x
+Output: Et array som representerer en heap, som inneholder x
+Kjøretid: O(log(n))
+-------------------
+Procedure Insert(A,x)
+    A[n] <- x
+    i <- n
+    while 0 < i and A[i] < A[(i-1/2)] do
+        A[i], A[(i-1)/2] <- A[(i-1)/2],A[i]
+        i <- [(i-1)/2]
+    end
+
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme for sletting av Heaps(Vil da være rot-noden, første indeks)
+Input: Et array A som representerer en heap med n elementer og et element x
+Output: Et array som representerer en heap, der minste verdi er fjernet
+Kjøretid: O(log(n))
+-------------------
+Procedure RemoveMin(A)
+    x <- A[0]
+    A[0] <- A[n-1]
+    i <- 0
+    while 2i + 2 < n- 1 do
+        j <- if A[2i+2] then 2i + 1 else 2i + 2
+        if A[j] <= A[i] then
+            A[i], A[j] <- A[j], A[i]
+            i <- j
+            continue
+        break
+    end
+    if 2i + 1 < n-1 and A[2i+1] <= A[i] then
+        A[i],A[2i+1] <- A[2i+1],A[i]
+    return x
+
+*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Algoritme: Bygge Huffman trær
+Input: En mengde C med par <s,f> der s er et symbol og f er en frekvens
+Output: Et Huffman-tre
+-------------------
+Procedure Huffman(C)
+    Q <- new PriorityQueue
+    for <s,f> element i C do:
+        Insert(Q, new Node(s,f,null,null))
+    end
+    while Size(Q) > 1 do 
+        v1 <- RemoveMin(Q)
+        v2 <- RemoveMin(Q)
+        f <- v1.freq + v2.freq
+        Insert(Q, new Node(null, f, v1, v2))
+    end
+    return RemoveMin(Q)

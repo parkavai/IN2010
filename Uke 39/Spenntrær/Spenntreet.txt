@@ -1,0 +1,12 @@
+Hva er et spenntreet?
+Et spenntreet er et tre hvor vi bygger en veien i en sammenhengende graf gjennom 
+vektene til kantene, hvor veien bygges gjennom de kantene med lavest vekt. 
+
+Pensum-definisjon:
+Et spenntre ansees som en sammenhengende graf G = (V(Noder),E(Kanter)) 
+hvor treet har Gt = (Vt, Et) der V = Vt og Et er en delmengde av E.
+
+Ting å vite
+Hvis en graf har flere kanter enn noder, så inneholder grafen en sykler
+dermed har spenntrær |V| - 1 kanter, altså (antall noder - 1) kant. Når 
+grafen er uvektet, så kan vi bruke DFS og BFS til å gi oss et spenntre.  
