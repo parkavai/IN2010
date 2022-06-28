@@ -1,5 +1,5 @@
 # IN2010
-Her er en oversikt over en rekke mapper og filer som jeg har lagd i emnet "IN2010", høsten 2021 på "Universitetet i Oslo".
+Her er en oversikt over en rekke mapper og filer som jeg har lagd i emnet "IN2010", høsten 2021 ved "Universitetet i Oslo".
 
 Kort om emnet: <br />
 Emnet gir en gjennomgang av datastrukturer som stakker, trær, grafer, hashtabeller og prioritetskøer, samt algoritmer for sortering, søking, innsetting og så videre knyttet til disse. Ulike implementasjoner vurderes med vekt på effektivitet, programstruktur og abstrakte datatyper. Viktige elementer i emnet er rekursiv programmering samt vurdering og beskrivelse av programmers effektivitet.
