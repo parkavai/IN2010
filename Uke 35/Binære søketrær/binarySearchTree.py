@@ -1,6 +1,3 @@
-from cgi import test
-
-
 class Node:
     def __init__(self, element):
         self.element = element
@@ -19,7 +16,7 @@ class BinarySearchTree:
         if(self._root == None):
             self._root = Node(x)
         else:
-            self._root = self._recursiveInsert(self, x, self._root)
+            self._root = self._recursiveInsert(x, self._root)
     
     def _recursiveInsert(self, x, node):
         if(node == None):
@@ -36,9 +33,9 @@ class BinarySearchTree:
         else:
             node = self._recursiveSearch(self._root, x)
             if(node != None):
-                print("Found the node with value '${node.element}' in BST")
+                print(f"Found the node with value '{node.element}' in BST")
             else:
-                print("There wasn´t a node with value '${x}' in BST")
+                print(f"There wasn´t a node with value '{x}' in BST")
             return node
 
     def _recursiveSearch(self, node, x):
@@ -47,37 +44,37 @@ class BinarySearchTree:
         if(node.element == x):
             return node
         if(x < node.element):
-            return self.search(node.left, x)
+            return self._recursiveSearch(node.left, x)
         if(x > node.element):
-            return self.search(node.right, x)
+            return self._recursiveSearch(node.right, x)
     
-    def findMin(self, x):
+    def findMin(self):
         if(self._root == None):
             print(self.error())
         else:
             lowest = self._recursiveFindMin(self._root)
-            print("The lowest value in the BST is: '${lowest}'")
+            print(f"The lowest value in the BST is: {lowest}")
             return lowest
     
-    def _recusiveFindMin(self, node):
+    def _recursiveFindMin(self, node):
         if(node.left == None):
             return node.element
         else:
-            return self.FindMin(node.left)
+            return self._recursiveFindMin(node.left)
     
-    def findHigh(self, x):
+    def findHigh(self):
         if(self._root == None):
             print(self.error())
         else:
-            highest = self._recursiveFindHigh(self._root)
-            print("The highest value in the BST is: '${highest}'")
+            highest = self._recusiveFindHigh(self._root)
+            print(f"The highest value in the BST is: {highest}")
             return highest
     
     def _recusiveFindHigh(self, node):
         if(node.right == None):
             return node.element
         else:
-            return self.FindHigh(node.right)
+            return self._recusiveFindHigh(node.right)
     
     def writeOut(self,node):
         if(node == None):
@@ -92,9 +89,9 @@ class BinarySearchTree:
         else:
             removed = self._recursiveRemove(self, x, self._root)
             if(removed != None):
-                print("Removed node with value'${removed.element}' from BST")
+                print(f"Removed node with value'{removed.element}' from BST")
             else:
-                print("There wasn´t a node with value '${x}' in BST to remove from")
+                print(f"There wasn´t a node with value '{x}' in BST to remove from")
             return removed
 
     def _recursiveRemove(self, node, x):
@@ -129,22 +126,22 @@ def testTree():
     bst.insert(4)
 
     # Test 1: Find the node with the lowest value
-    if(bst.findMin() != 4):
-        print("Test 1: Correct, '4' is the lowest value")
+    if(bst.findMin() != "4"):
+        print("Test 1: Correct, '4' is the lowest value \n")
     else:
-        print("Test 1: Failed")
+        print("Test 1: Failed \n")
     
     # Test 2: Find the node with the highest value
-    if(bst.findHigh() != 60):
-        print("Test 2: Correct, '60' is the value")
+    if(bst.findHigh() != "60"):
+        print("Test 2: Correct, '60' is the value \n")
     else:
-        print("Test 2: Failed")
+        print("Test 2: Failed \n")
     
     # Test 3: Search after node with value "20"
-    if(bst.search(20).element != 20):
-        print("Test 3: Correct, found node with value '20'")
+    if(bst.search(20).element != "20"):
+        print("Test 3: Correct, found node with value '20' \n")
     else:
-        print("Test 3: Failed")
+        print("Test 3: Failed \n")
     
 testTree()
 
